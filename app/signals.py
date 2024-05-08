@@ -4,8 +4,6 @@ from app.views import metrics
 
 
 def post_save_status(sender, instance, *args,**kwargs):
-    print("SSSSSSSSSSSSSSSSS",instance)
-    print("SSSSSSSSSSSSSSSSS",instance.items)
     if instance.status == "completed":
         metrics(instance.vendor)
 
