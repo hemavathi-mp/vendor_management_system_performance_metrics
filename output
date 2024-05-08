@@ -1,0 +1,96 @@
+Vendor:
+http://127.0.0.1:8000/api/vendorcreate
+POST:
+{
+    "name": "vanaja",
+    "contact_details": "mysore",
+    "address": "#13, mysore",
+    "on_time_delivery_rate": 2.0,
+    "quality_rating_avg": 2.0,
+    "average_response_time": 2.0,
+    "fulfillment_rate": 2.0
+}
+
+GET all:
+http://127.0.0.1:8000/api/vendors
+
+GET single vendor details:
+http://127.0.0.1:8000/api/vendors/2/
+
+PUT:
+http://127.0.0.1:8000/api/vendors/2/
+{
+    "name": "vanaja",
+    "contact_details": "mysore",
+    "address": "#13, mysore",
+    "on_time_delivery_rate": 2.0,
+    "quality_rating_avg": 2.0,
+    "average_response_time": 2.0,
+    "fulfillment_rate": 2.0
+}
+
+
+DELETE:
+http://127.0.0.1:8000/api/vendors/2/
+
+---------------------------------------------Purchase Order Tracking opertion------------------------------------
+POST:
+http://127.0.0.1:8000/api/purchase_orders_create
+{
+    "vendor":2,
+    "delivery_date": "2024-05-01",
+    "items": {
+    "1":"Toy",
+    "2":"Bell"
+    },
+    "quantity":2,
+    "status":"completed",
+    "quality_rating":4,
+    "issue_date": "2024-05-01",
+    "acknowledgment_date": "2024-05-01"
+}
+
+GET:
+http://127.0.0.1:8000/api/purchase_orders/2/
+
+
+GET:
+http://127.0.0.1:8000/api/purchase_orders/
+
+PUT:
+http://127.0.0.1:8000/api/purchase_orders/2/
+{
+    "vendor":2,
+    "delivery_date": "2024-05-01",
+    "items": {
+    "1":"Toy",
+    "2":"Bell"
+    },
+    "quantity":2,
+    "status":"completed",
+    "quality_rating":4,
+    "issue_date": "2024-05-01",
+    "acknowledgment_date": "2024-05-01"
+}
+
+DELETE:
+http://127.0.0.1:8000/api/purchase_orders/2/
+
+-------------------------------------Performance-------------------------
+GET:
+http://127.0.0.1:8000/api/vendors/2/performance
+{
+    "on_time_delivery_rate": 3.0,
+    "quality_rating_avg": 2.12,
+    "average_response_time": 2.0,
+    "fulfillment_rate": 3
+}
+
+
+------------------------------------UpdateAcknowledgmentEndpoint:------------------
+POST:
+http://127.0.0.1:8000/api/purchase_orders/2/acknowledge/
+{
+    "issue_date": "2024-05-01",
+    "acknowledgment_date": "2024-05-01"
+}
